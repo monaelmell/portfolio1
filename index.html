@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mona El Mell | MEM AI Creative Studio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        obsidian: {
+                            950: '#05070e',
+                            900: '#070913',
+                            800: '#0e1326',
+                            700: '#17203d'
+                        },
+                        burgundy: {
+                            950: '#24050c',
+                            900: '#4a0e1c',
+                            800: '#6b1428',
+                            700: '#8a1c36'
+                        },
+                        champagne: {
+                            300: '#f3e5ab',
+                            400: '#e5c76b',
+                            500: '#d4af37',
+                            600: '#b59024'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 7px; }
+        ::-webkit-scrollbar-track { background: #0A0D14; }
+        ::-webkit-scrollbar-thumb { background: #6B1D2F; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #D4AF37; }
+
+        /* ==========================================================================
+           PURE CSS AI CINEMA & NEURAL ARTWORK SYSTEM
+           ========================================================================== */
+
+        /* 1. Side Decorative Margin Tracks */
+        .side-track-left, .side-track-right {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            width: 54px;
+            z-index: 25;
+            pointer-events: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 96px 0 36px 0;
+        }
+        .side-track-left {
+            left: 0;
+            border-right: 1px solid rgba(212, 175, 55, 0.14);
+            background: linear-gradient(90deg, rgba(107, 29, 47, 0.22) 0%, transparent 100%);
+        }
+        .side-track-right {
+            right: 0;
+            border-left: 1px solid rgba(212, 175, 55, 0.14);
+            background: linear-gradient(270deg, rgba(107, 29, 47, 0.22) 0%, transparent 100%);
+        }
+
+        /* CSS Film Sprocket Holes */
+        .film-sprockets {
+            width: 12px;
+            height: 110px;
+            background-image: repeating-linear-gradient(
+                to bottom,
+                rgba(212, 175, 55, 0.38) 0px,
+                rgba(212, 175, 55, 0.38) 7px,
+                transparent 7px,
+                transparent 17px
+            );
+            border-radius: 2px;
+        }
+
+        /* CSS Mini Aperture Ring */
+        .side-aperture {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: 1.5px solid rgba(212, 175, 55, 0.5);
+            box-shadow: 0 0 12px rgba(212, 175, 55, 0.25), inset 0 0 6px rgba(107, 29, 47, 0.85);
+            position: relative;
+        }
+        .side-aperture::after {
+            content: '';
+            position: absolute;
+            inset: 5px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #D4AF37 0%, #6B1D2F 80%);
+        }
+
+        /* CSS Neural Node Line */
+        .neural-line {
+            width: 1px;
+            height: 75px;
+            background: linear-gradient(to bottom, transparent, #D4AF37, #6B1D2F, transparent);
+            position: relative;
+        }
+        .neural-line::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -3px;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #e5c76b;
+            box-shadow: 0 0 10px #D4AF37;
+        }
+
+        /* CSS 3D Wireframe Cube Motif */
+        .css-wire-cube {
+            width: 22px;
+            height: 22px;
+            border: 1px solid rgba(212, 175, 55, 0.45);
+            transform: rotate(45deg);
+            position: relative;
+            box-shadow: 0 0 10px rgba(107, 29, 47, 0.4);
+        }
+        .css-wire-cube::after {
+            content: '';
+            position: absolute;
+            inset: 4px;
+            border: 1px solid rgba(226, 232, 240, 0.3);
+        }
+
+        /* CSS Audio / Timeline Waveform Bars */
+        .css-waveform {
+            display: flex;
+            align-items: center;
+            gap: 2.5px;
+            height: 26px;
+        }
+        .css-waveform span {
+            width: 2px;
+            background: linear-gradient(to top, #6B1D2F, #D4AF37);
+            border-radius: 2px;
+            animation: wavePulse 2.4s ease-in-out infinite;
+        }
+        .css-waveform span:nth-child(1) { height: 10px; animation-delay: 0s; }
+        .css-waveform span:nth-child(2) { height: 22px; animation-delay: 0.3s; }
+        .css-waveform span:nth-child(3) { height: 14px; animation-delay: 0.6s; }
+        .css-waveform span:nth-child(4) { height: 26px; animation-delay: 0.9s; }
+        .css-waveform span:nth-child(5) { height: 12px; animation-delay: 1.2s; }
+
+        @keyframes wavePulse {
+            0%, 100% { transform: scaleY(0.6); opacity: 0.55; }
+            50% { transform: scaleY(1.15); opacity: 1; }
+        }
+
+        /* 2. Hero Background & Lens Illustration */
+        .hero-bg {
+            background:
+                radial-gradient(circle at 75% 45%, rgba(107, 29, 47, 0.42) 0%, transparent 55%),
+                radial-gradient(circle at 20% 25%, rgba(17, 22, 34, 0.85) 0%, transparent 50%),
+                #0A0D14;
+        }
+
+        .ai-lens-sculpture {
+            position: relative;
+            width: 320px;
+            height: 320px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        @media (min-width: 640px) {
+            .ai-lens-sculpture {
+                width: 430px;
+                height: 430px;
+            }
+        }
+
+        .golden-grid-overlay {
+            position: absolute;
+            inset: -16px;
+            border: 1px solid rgba(212, 175, 55, 0.22);
+            border-radius: 18px;
+            pointer-events: none;
+        }
+        .golden-grid-overlay::before {
+            content: '';
+            position: absolute;
+            top: 38.2%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: rgba(212, 175, 55, 0.16);
+        }
+        .golden-grid-overlay::after {
+            content: '';
+            position: absolute;
+            left: 61.8%;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: rgba(212, 175, 55, 0.16);
+        }
+
+        .anamorphic-beam {
+            position: absolute;
+            width: 145%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.18) 25%, rgba(243, 229, 171, 0.9) 50%, rgba(212, 175, 55, 0.18) 75%, transparent 100%);
+            box-shadow: 0 0 28px 4px rgba(212, 175, 55, 0.35);
+            z-index: 20;
+            pointer-events: none;
+        }
+        .anamorphic-beam-secondary {
+            position: absolute;
+            width: 115%;
+            height: 1px;
+            transform: rotate(-28deg);
+            background: linear-gradient(90deg, transparent, rgba(107, 29, 47, 0.85), rgba(212, 175, 55, 0.55), transparent);
+            z-index: 15;
+            pointer-events: none;
+        }
+
+        .lens-ring-outer {
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            border: 1px dashed rgba(212, 175, 55, 0.38);
+            box-shadow: 0 0 60px rgba(107, 29, 47, 0.55), inset 0 0 40px rgba(10, 13, 20, 0.95);
+            animation: spinSlow 45s linear infinite;
+        }
+
+        .lens-ring-bezel {
+            position: absolute;
+            inset: 26px;
+            border-radius: 50%;
+            background: conic-gradient(
+                from 45deg,
+                #111622,
+                #6B1D2F,
+                #D4AF37,
+                #1a2236,
+                #6B1D2F,
+                #e5c76b,
+                #111622
+            );
+            padding: 3px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.85);
+            animation: spinReverse 30s linear infinite;
+        }
+        .lens-ring-bezel-inner {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: radial-gradient(circle at 35% 35%, #1a2236 0%, #0A0D14 75%);
+        }
+
+        .lens-iris {
+            position: absolute;
+            inset: 66px;
+            border-radius: 50%;
+            background:
+                repeating-conic-gradient(
+                    from 0deg,
+                    rgba(17, 22, 34, 0.95) 0deg 28deg,
+                    rgba(212, 175, 55, 0.24) 28deg 30deg
+                );
+            border: 2px solid rgba(212, 175, 55, 0.42);
+            box-shadow: inset 0 0 35px #000000, 0 0 25px rgba(212, 175, 55, 0.18);
+        }
+
+        .lens-core {
+            position: absolute;
+            inset: 114px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 38% 32%, #f3e5ab 0%, #D4AF37 20%, #6B1D2F 54%, #0A0D14 88%);
+            box-shadow: 0 0 42px rgba(212, 175, 55, 0.48), inset 0 0 20px rgba(0, 0, 0, 0.85);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .lens-core::before {
+            content: '';
+            width: 24%;
+            height: 24%;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.88);
+            filter: blur(2px);
+            transform: translate(-35%, -35%);
+        }
+
+        .floating-frame-card {
+            position: absolute;
+            background: rgba(17, 22, 34, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.35);
+            border-radius: 10px;
+            padding: 8px 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.75);
+            z-index: 25;
+        }
+
+        @keyframes spinSlow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        @keyframes spinReverse {
+            from { transform: rotate(360deg); }
+            to { transform: rotate(0deg); }
+        }
+
+        .glass-header {
+            background: rgba(10, 13, 20, 0.86);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+        .showcase-card {
+            background: linear-gradient(145deg, rgba(17, 22, 34, 0.88) 0%, rgba(10, 13, 20, 0.96) 100%);
+            backdrop-filter: blur(14px);
+            border: 1px solid rgba(212, 175, 55, 0.18);
+            box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.85);
+        }
+        .showcase-card:hover {
+            border-color: rgba(212, 175, 55, 0.38);
+        }
+    </style>
+</head>
+<body class="bg-[#0A0D14] text-[#E2E8F0] font-sans antialiased selection:bg-champagne-500 selection:text-obsidian-950 overflow-x-hidden">
+
+    <!-- Side Tracks -->
+    <div class="side-track-left hidden lg:flex" aria-hidden="true">
+        <div class="side-aperture" title="Optical Aperture"></div>
+        <div class="film-sprockets"></div>
+        <div class="css-wire-cube"></div>
+        <div class="neural-line"></div>
+        <div class="css-waveform">
+            <span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <div class="film-sprockets"></div>
+        <div class="side-aperture"></div>
+    </div>
+
+    <div class="side-track-right hidden lg:flex" aria-hidden="true">
+        <div class="side-aperture"></div>
+        <div class="css-waveform">
+            <span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <div class="neural-line"></div>
+        <div class="css-wire-cube"></div>
+        <div class="film-sprockets"></div>
+        <div class="neural-line"></div>
+        <div class="side-aperture"></div>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="fixed top-0 left-0 right-0 z-40 glass-header border-b border-champagne-500/15">
+        <div class="max-w-6xl mx-auto px-6 sm:px-16 h-20 flex items-center justify-between">
+            <a href="#hero" class="flex items-center space-x-3.5 group">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-br from-[#6B1D2F] to-[#0A0D14] border border-champagne-500/50 flex items-center justify-center shadow-lg group-hover:border-champagne-400 transition-colors">
+                    <span class="font-serif font-bold text-champagne-400 text-lg">M</span>
+                </div>
+                <div>
+                    <span class="block font-serif font-bold tracking-wider text-white text-base sm:text-lg leading-none">MONA EL MELL</span>
+                    <span class="block text-[10px] text-champagne-400 tracking-[0.22em] uppercase mt-1">MEM AI Creative Studio</span>
+                </div>
+            </a>
+
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-300">
+                <a href="#hero" class="hover:text-champagne-400 transition-colors">Studio</a>
+                <a href="#projects" class="hover:text-champagne-400 transition-colors">Selected Works</a>
+                <a href="#contact" class="px-5 py-2.5 rounded-full bg-[#6B1D2F]/80 hover:bg-[#6B1D2F] text-champagne-300 font-semibold border border-champagne-500/40 hover:border-champagne-400 hover:text-white transition-all shadow-md">
+                    Contact
+                </a>
+            </nav>
+
+            <button id="mobile-menu-btn" class="md:hidden text-gray-300 hover:text-champagne-400 p-2 focus:outline-none" aria-label="Toggle Menu">
+                <i class="fa-solid fa-bars text-xl"></i>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden glass-header border-b border-champagne-500/15 px-6 py-5 space-y-3">
+            <a href="#hero" class="block py-2 text-gray-200 hover:text-champagne-400">Studio</a>
+            <a href="#projects" class="block py-2 text-gray-200 hover:text-champagne-400">Selected Works</a>
+            <a href="#contact" class="block py-2 text-champagne-400 font-semibold">Contact</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-bg pt-32 pb-20 lg:pt-40 lg:pb-28 px-6 sm:px-16 border-b border-champagne-500/10 relative">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <div class="lg:col-span-6 space-y-6 text-center lg:text-left z-10">
+                <div class="inline-flex items-center space-x-2.5 px-4 py-1.5 rounded-full bg-[#6B1D2F]/35 border border-champagne-500/35 text-champagne-300 text-xs font-medium tracking-wider uppercase">
+                    <i class="fa-solid fa-location-dot text-champagne-400"></i>
+                    <span>Cinematic AI Video Creator • Lebanon</span>
+                </div>
+
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-white leading-[1.15] tracking-tight">
+                    Crafting <span class="text-transparent bg-clip-text bg-gradient-to-r from-champagne-300 via-champagne-400 to-champagne-600 italic font-normal">Cinematic</span> Stories Through AI Direction
+                </h1>
+
+                <p class="text-gray-300 text-base sm:text-lg font-light leading-relaxed max-w-xl mx-auto lg:mx-0">
+                    MEM AI Creative Studio unites classical film composition, lighting architecture, and structured visual development reference boards to direct compelling visual narratives.
+                </p>
+
+                <div class="pt-3 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                    <a href="#projects" class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-gradient-to-r from-champagne-500 to-champagne-600 text-[#0A0D14] font-bold hover:from-champagne-400 hover:to-champagne-500 transition-all shadow-lg shadow-champagne-500/20 flex items-center justify-center space-x-2.5">
+                        <span>Explore Selected Works</span>
+                        <i class="fa-solid fa-arrow-down text-xs"></i>
+                    </a>
+                    <a href="#contact" class="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-[#111622] text-gray-200 font-medium border border-champagne-500/25 hover:border-champagne-400 hover:text-white transition-all flex items-center justify-center space-x-2">
+                        <span>Get in Touch</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="lg:col-span-6 flex items-center justify-center relative py-6">
+                <div class="ai-lens-sculpture">
+                    <div class="golden-grid-overlay"></div>
+                    <div class="anamorphic-beam"></div>
+                    <div class="anamorphic-beam-secondary"></div>
+                    <div class="lens-ring-outer"></div>
+                    <div class="lens-ring-bezel">
+                        <div class="lens-ring-bezel-inner"></div>
+                    </div>
+                    <div class="lens-iris"></div>
+                    <div class="lens-core"></div>
+
+                    <div class="floating-frame-card -top-3 left-0 sm:left-2 flex items-center space-x-2.5">
+                        <div class="w-7 h-7 rounded bg-[#6B1D2F] border border-champagne-500/40 flex items-center justify-center text-champagne-400 text-xs">
+                            <i class="fa-solid fa-film"></i>
+                        </div>
+                        <div>
+                            <div class="text-[10px] font-bold text-white tracking-wider uppercase">Anamorphic Framing</div>
+                            <div class="text-[9px] text-champagne-400">Visual Continuity</div>
+                        </div>
+                    </div>
+
+                    <div class="floating-frame-card -bottom-3 right-0 sm:right-2 flex items-center space-x-2.5">
+                        <div class="w-7 h-7 rounded bg-[#111622] border border-champagne-500/40 flex items-center justify-center text-champagne-400 text-xs">
+                            <i class="fa-solid fa-layer-group"></i>
+                        </div>
+                        <div>
+                            <div class="text-[10px] font-bold text-white tracking-wider uppercase">3-Board Blueprint</div>
+                            <div class="text-[9px] text-champagne-400">Character • Set • Motion</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Portfolio Section -->
+    <main id="projects" class="py-24 px-5 sm:px-16 max-w-6xl mx-auto">
+        <div class="text-center max-w-2xl mx-auto mb-20">
+            <span class="text-champagne-400 uppercase tracking-[0.25em] text-xs font-semibold">Curated Exhibition</span>
+            <h2 class="text-3xl sm:text-5xl font-serif font-bold text-white mt-3 mb-4">Cinematic Video Works</h2>
+            <p class="text-gray-400 text-sm sm:text-base font-light">
+                Click any video below to expand into full-screen cinema view, or open its Source Reference gallery to browse the visual development sheets created for each film.
+            </p>
+        </div>
+
+        <div id="projects-container" class="space-y-24">
+            <!-- Dynamic Content Injected via JS -->
+        </div>
+    </main>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-5 sm:px-16 max-w-5xl mx-auto">
+        <div class="showcase-card rounded-3xl p-10 sm:p-14 text-center relative overflow-hidden">
+            <div class="inline-flex items-center space-x-2 text-xs text-champagne-400 uppercase tracking-widest mb-4">
+                <i class="fa-solid fa-location-dot"></i>
+                <span>Based in Lebanon</span>
+            </div>
+            <h3 class="text-3xl sm:text-4xl font-serif font-bold text-white mb-4">Let’s Direct Your Next Visual Story</h3>
+            <p class="text-gray-300 max-w-xl mx-auto text-sm sm:text-base font-light mb-8">
+                Reach out to discuss cinematic AI video direction, visual development boards, and brand storytelling projects.
+            </p>
+            <a href="mailto:monaalmel440@gmail.com" class="inline-flex items-center space-x-3 px-8 py-4 rounded-xl bg-[#6B1D2F]/90 hover:bg-[#6B1D2F] text-champagne-300 hover:text-white font-semibold border border-champagne-500/40 transition-all shadow-xl">
+    <i class="fa-solid fa-envelope text-champagne-400"></i>
+    <span>my email</span>
+</a>
+			<a href="tel:+96176594246" class="inline-flex items-center space-x-3 px-8 py-4 rounded-xl bg-[#6B1D2F]/90 hover:bg-[#6B1D2F] text-champagne-300 hover:text-white font-semibold border border-champagne-500/40 transition-all shadow-xl">
+    <i class="fa-solid fa-phone text-champagne-400"></i>
+    <span>Call Me</span>
+</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-10 border-t border-champagne-500/10 text-center text-xs text-gray-500 px-6 sm:px-16">
+        <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div>© 2026 Mona El Mell — MEM AI Creative Studio • Lebanon</div>
+            <div class="text-champagne-500/70 tracking-widest uppercase text-[10px]">Cinematic AI Direction & Visual Development</div>
+        </div>
+    </footer>
+
+    <!-- Video Modal -->
+    <div id="video-modal" class="fixed inset-0 z-50 hidden bg-black/95 backdrop-blur-xl flex items-center justify-center p-4 sm:p-8" role="dialog" aria-modal="true">
+        <div class="relative w-full max-w-5xl bg-[#0A0D14] rounded-2xl overflow-hidden border border-champagne-500/35 shadow-2xl">
+            <div class="flex items-center justify-between px-6 py-4 bg-[#111622] border-b border-champagne-500/15">
+                <div class="flex items-center space-x-3">
+                    <span class="w-2.5 h-2.5 rounded-full bg-champagne-400"></span>
+                    <h4 id="video-modal-title" class="font-serif font-bold text-white text-base sm:text-lg">Project Film</h4>
+                </div>
+                <button onclick="closeVideoModal()" class="w-9 h-9 rounded-full bg-[#0A0D14] hover:bg-[#6B1D2F] text-gray-300 hover:text-white flex items-center justify-center transition-colors" aria-label="Close Video">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+            <div class="relative aspect-video bg-black flex items-center justify-center">
+                <video id="modal-video-element" controls playsinline class="w-full h-full object-contain">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sheets Carousel Modal -->
+    <div id="sheets-modal" class="fixed inset-0 z-50 hidden bg-black/95 backdrop-blur-2xl flex items-center justify-center p-3 sm:p-8" role="dialog" aria-modal="true">
+        <div class="relative w-full max-w-6xl h-[90vh] bg-[#0A0D14] rounded-3xl overflow-hidden border border-champagne-500/35 shadow-2xl flex flex-col">
+            <div class="flex items-center justify-between px-6 py-4 bg-[#111622] border-b border-champagne-500/15">
+                <div>
+                    <span id="sheets-project-label" class="text-[10px] uppercase tracking-widest text-champagne-400 block">Source Visual Development</span>
+                    <h4 id="sheets-modal-title" class="font-serif font-bold text-white text-base sm:text-xl">Sheet Title</h4>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <span id="sheets-counter" class="text-xs font-semibold px-3 py-1 rounded-full bg-[#6B1D2F]/80 text-champagne-300 border border-champagne-500/30">
+                        1 / 1
+                    </span>
+                    <button onclick="closeSheetsModal()" class="w-10 h-10 rounded-full bg-[#0A0D14] hover:bg-[#6B1D2F] text-gray-300 hover:text-white flex items-center justify-center transition-colors" aria-label="Close Gallery">
+                        <i class="fa-solid fa-xmark text-lg"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="relative flex-1 bg-[#0A0D14] flex items-center justify-center p-4 sm:p-8 overflow-hidden">
+                <button onclick="prevSheet()" class="absolute left-3 sm:left-6 z-20 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-[#111622]/90 hover:bg-champagne-500 text-white hover:text-[#0A0D14] border border-champagne-500/40 flex items-center justify-center transition-all shadow-xl" aria-label="Previous Sheet">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+
+                <div id="sheet-stage" class="w-full h-full flex items-center justify-center">
+                    <!-- Injected via JS -->
+                </div>
+
+                <button onclick="nextSheet()" class="absolute right-3 sm:right-6 z-20 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-[#111622]/90 hover:bg-champagne-500 text-white hover:text-[#0A0D14] border border-champagne-500/40 flex items-center justify-center transition-all shadow-xl" aria-label="Next Sheet">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+
+            <div id="sheets-thumbs" class="px-6 py-4 bg-[#111622] border-t border-champagne-500/15 flex items-center justify-center gap-3 sm:gap-5 overflow-x-auto">
+                <!-- Injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const PORTFOLIO_PROJECTS = [
+            {
+                id: 1,
+                number: "01",
+                category: "Cinematic Brand Commercial & Haute Couture",
+                title: "Princess Vibes — Dress & Impress Boutique",
+                description: "A high-end cinematic brand commercial designed to elevate corporate identity by showcasing the magical royal birthday celebration of a young princess. Dressed in an exquisite artisanal gown from Dress & Impress Boutique, the visual narrative blends majestic royal atmospheres with emotional storytelling. Created using an advanced AI and editing pipeline: visual assets generated via Banana Nano, video sequences brought to life with Omni, and polished with professional cuts and pacing in CapCut.",
+            
+                videoSrc: "PRINCESS.mp4",
+             
+            },
+            {
+                id: 2,
+                number: "02",
+                category: "3D Stylized Commercial",
+                title: "Master Chips — Tabbouleh Flavor Lab",
+                description:"A high-energy, 3D animated commercial launching the all-new Master Chips Tabbouleh flavor inside the Master Flavor Lab. The narrative follows three custom-designed 3D chef characters—Chef Boss, Chef Suzy, and Chef Bobby—each meticulously crafted with unique attire and distinct roles, from professional dicing and dough kneading to adding rich lemon sprays and fiery chili spices. Brought to life through a comprehensive AI production pipeline: initial character concepts and visual assets generated via Nano Banana, cinematic motion driven by Veo, a dual male/female voiceover mix engineered in ElevenLabs, and full polish with custom packaging and chip asset reveals in CapCut.",
+                videoSrc: "master.mp4",
+                sheets: [
+                    {
+                        title: "Sheet 01 • Character & Packaging Sheet",
+                        subtitle: "Chef Bobby, Chef Boss & Chef Suzy Turnarounds + Pack Layout",
+                        imageSrc: "char master.jpeg"
+                    },
+                    {
+                        title: "Sheet 02 • Kitchen Lab & Lighting Blueprint",
+                        subtitle: "Stainless Steel Set Architecture & Warm Oven Gradient Maps",
+                        imageSrc: "master2.jpg"
+                    },
+                    {
+                        title: "Sheet 03 • Storyboard & Action Vectors",
+                        subtitle: "Sequential Culinary Cuts, Reaction Poses & Continuity Rules",
+                        imageSrc: "master3.jpg"
+                    }
+                ]
+            },
+            {
+                id: 3,
+                number: "03",
+                category: "DTC / Kids Content & Edutainment",
+                title: "Super Bido — The Red Tomato Song (3D Children's Animation & AI Music Production)",
+                description:"A vibrant 3D animated music video created for the 'Super Bido' children’s YouTube channel, designed to encourage healthy eating habits by introducing the health benefits of tomatoes through an engaging narrative. Keyframes and character assets were designed and refined using advanced image generation (Nano Banana / v6 model), ensuring consistent, eye-catching character proportions and a colorful aesthetic tailored for young audiences. Dynamic, smooth, and lightweight scenes were produced utilizing cutting-edge AI video generation tools with strict visual continuity, while the catchy nursery rhyme and vocal melodies were custom-composed using Suno AI with tailored musical prompts and lyric structures to maximize retention and engagement for children.",
+                videoSrc: "tomate.mp4",
+                sheets: [
+                    {
+                        title: "Sheet 01 • Product & Texture Identity",
+                        subtitle: "Sculpted Cacao Geometry, Gold Foil Embossing & Swatch Palette",
+                        imageSrc: "bido1.jpg"
+                    }
+                ]
+            },
+            {
+                id: 4,
+                number: "04",
+                category: "Cinematic AI Commercial / Luxury DTC Advertising",
+                title: "Dior Sauvage — King of Beasts Cinematic Commercial",
+                description: "A high-end cinematic commercial for Dior Sauvage featuring an intense rhythm and raw, untamed atmosphere that embodies the true meaning of 'Sauvage' by linking the fragrance's identity to the majestic 'King of Beasts' theme. Following the fragrance application, the narrative transitions into a sleek, multi-angle product showcase of the iconic bottle. The production utilized a rigorous storytelling plan and seamless editing to eliminate abrupt hard cuts, bringing the narrative together fluidly. Character assets and visual development were crafted using Nano Banana (v6 model), dynamic AI video generation was powered by Kling, and final professional post-production, multi-track assembly, and pacing were perfected using CapCut.",
+                videoSrc: "dior.mp4",
+                sheets: [
+                    {
+                        title: "Sheet 01 • Timepiece Anatomy & Materials",
+                        subtitle: "Dial Micro-Engraving, Sapphire Glass & Rose-Gold Finishes",
+                        imageSrc: "dior1.jpg"
+                    },
+                    {
+                        title: "Sheet 02 • Studio Caustics & Set Direction",
+                        subtitle: "Dark Obsidian Stage & Controlled Specular Light Strips",
+                        imageSrc: "dior2.jpg"
+                    },
+                    {
+                        title: "Sheet 03 • Orbital Camera & Continuity",
+                        subtitle: "360-Degree Dolly Paths & Precision Gear Motion Timing",
+                        imageSrc: "dior3.jpg"
+                    }
+                ]
+            },
+            {
+                id: 5,
+                number: "05",
+                category: "High-End Commercial AI Video Production / Luxury Confectionery Advertising",
+                title: "Côte d'Or — The Golden Relaxation Journey (3D Sensory Commercial)",
+                description: "A whimsical and sensory 3D animated commercial for Côte d'Or chocolate that takes a stressed character on a dreamy escape into a world of ultimate relaxation and rich flavors. The narrative features magical 3D dreamscapes—complete with a violin-playing character, soothing massages, and a playful appearance by the iconic Côte d'Or elephant emblem proudly presenting the signature chocolate packaging in a humorous, memorable way. Custom background sound design was crafted using advanced AI audio generation tools, while the production utilized V6 Pixar models for smooth AI video generation and Nano Banana for character and asset development.",
+                videoSrc: "cote.mp4",
+                sheets: [
+                    {
+                        title: "Sheet 01 • Hero Character & Expression Matrix",
+                        subtitle: "Full-Body Turnaround, Costume Details & Facial Acting Sheet",
+                        imageSrc: "cot1.jpg"
+                    },
+                    {
+                        title: "Sheet 02 • World Building & Color Script",
+                        subtitle: "Stylized Cityscape Architecture & Golden Hour Atmosphere",
+                        imageSrc: "cot2.jpg"
+                    },
+                    {
+                        title: "Sheet 03 • Action Storyboard & Flight Paths",
+                        subtitle: "Dynamic Camera Tracking & Scene-to-Scene Continuity",
+                        imageSrc: "cot3.jpg"
+                    }
+                ]
+            }
+        ];
+
+        // ==========================================================================
+        // RENDER 5 STACKED FULL-SECTION SHOWCASES
+        // ==========================================================================
+        const projectsContainer = document.getElementById('projects-container');
+
+        PORTFOLIO_PROJECTS.forEach((project) => {
+            const hasSheets = project.sheets && project.sheets.length > 0;
+            const section = document.createElement('article');
+            section.className = 'showcase-card rounded-3xl p-6 sm:p-10 lg:p-12 transition-all duration-500 relative overflow-hidden';
+            section.innerHTML = `
+                <div class="absolute top-0 right-0 w-44 h-44 pointer-events-none opacity-30" style="background: radial-gradient(circle at top right, rgba(212, 175, 55, 0.25), transparent 70%);"></div>
+
+                <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+                    <div class="flex items-center space-x-3">
+                        <span class="px-3 py-1 rounded-md bg-[#6B1D2F]/85 text-champagne-300 text-xs font-bold tracking-widest uppercase border border-champagne-500/35">
+                            Film ${project.number}
+                        </span>
+                        <span class="text-xs sm:text-sm text-champagne-400/90 font-medium tracking-wide">
+                            ${project.category}
+                        </span>
+                    </div>
+                    <span class="text-[11px] text-gray-500 uppercase tracking-widest hidden sm:inline">
+                        MEM AI Creative Studio
+                    </span>
+                </div>
+
+                <h3 class="text-2xl sm:text-4xl font-serif font-bold text-white mb-6 tracking-tight">
+                    ${project.title}
+                </h3>
+
+                <div class="relative w-full aspect-video rounded-2xl overflow-hidden border border-champagne-500/25 group shadow-2xl bg-[#070910]">
+                    <video
+                        src="${project.videoSrc}"
+                        preload="metadata"
+                        muted
+                        loop
+                        playsinline
+                        onmouseenter="this.play().catch(()=>{})"
+                        onmouseleave="this.pause()"
+                        onerror="handleVideoError(this, '${project.videoSrc}')"
+                        onclick="openVideoModal(${project.id})"
+                        class="w-full h-full object-cover cursor-pointer transition-transform duration-700 group-hover:scale-[1.01]"
+                    ></video>
+
+                    <div onclick="openVideoModal(${project.id})" class="video-fallback hidden absolute inset-0 bg-gradient-to-br from-[#111622] via-[#0A0D14] to-[#6B1D2F]/40 flex flex-col items-center justify-center p-6 text-center cursor-pointer">
+                        <div class="w-16 h-16 rounded-full bg-[#0A0D14]/90 border border-champagne-500/40 text-champagne-400 flex items-center justify-center mb-3 shadow-lg">
+                            <i class="fa-solid fa-film text-2xl"></i>
+                        </div>
+                        <p class="text-white font-serif font-semibold text-lg">${project.title}</p>
+                        <p class="text-xs text-champagne-300/80 font-mono mt-1.5 px-3 py-1 rounded bg-black/50 border border-champagne-500/20">
+                            Expected Path: ${project.videoSrc}
+                        </p>
+                    </div>
+
+                    <button onclick="openVideoModal(${project.id})" class="absolute bottom-4 right-4 z-10 px-4 py-2.5 rounded-xl bg-[#0A0D14]/85 hover:bg-champagne-500 text-white hover:text-[#0A0D14] backdrop-blur-md border border-champagne-500/40 text-xs font-bold tracking-wider uppercase flex items-center space-x-2 shadow-xl transition-all">
+                        <i class="fa-solid fa-expand"></i>
+                        <span>Cinema View</span>
+                    </button>
+                </div>
+
+                <div class="mt-7 max-w-4xl">
+                    <p class="text-gray-300 text-sm sm:text-base leading-relaxed font-light">
+                        ${project.description}
+                    </p>
+                </div>
+
+                ${hasSheets ? `
+                <div class="mt-8 pt-6 border-t border-champagne-500/15 flex flex-col lg:flex-row lg:items-center justify-between gap-5">
+                    <div class="flex items-center space-x-3.5">
+                        <div class="w-11 h-11 rounded-xl bg-[#6B1D2F]/40 border border-champagne-500/35 flex items-center justify-center text-champagne-400 shrink-0">
+                            <i class="fa-solid fa-images text-lg"></i>
+                        </div>
+                        <div>
+                            <div class="flex items-center space-x-2.5 flex-wrap gap-y-1">
+                                <span class="text-sm font-semibold text-white">Production Source Sheets</span>
+                                <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-champagne-500/15 text-champagne-300 border border-champagne-500/30">
+                                    Source Boards (${project.sheets.length})
+                                </span>
+                            </div>
+                            <p class="text-xs text-gray-400 mt-0.5">
+                                Click any thumbnail or button to inspect the visual development sheets behind this film.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-3 flex-wrap">
+                        <div class="flex items-center gap-2">
+                            ${project.sheets.map((sheet, idx) => `
+                                <button onclick="openSheetsModal(${project.id}, ${idx})" class="relative w-14 h-10 rounded-lg overflow-hidden border border-champagne-500/30 hover:border-champagne-400 bg-[#0A0D14] group transition-all" title="${sheet.title}">
+                                    <img src="${sheet.imageSrc}" alt="${sheet.title}" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');" class="w-full h-full object-cover group-hover:scale-110 transition-transform">
+                                    <span class="hidden w-full h-full flex items-center justify-center text-[10px] font-bold text-champagne-400 bg-[#111622]">
+                                        0${idx + 1}
+                                    </span>
+                                </button>
+                            `).join('')}
+                        </div>
+
+                        <button onclick="openSheetsModal(${project.id}, 0)" class="px-4 py-2.5 rounded-xl bg-[#6B1D2F]/80 hover:bg-[#6B1D2F] text-champagne-300 hover:text-white border border-champagne-500/40 text-xs font-semibold tracking-wide flex items-center space-x-2 transition-all shadow-md">
+                            <i class="fa-solid fa-layer-group text-champagne-400"></i>
+                            <span>View Source Sheets (${project.sheets.length})</span>
+                        </button>
+                    </div>
+                </div>
+                ` : ''}
+            `;
+            projectsContainer.appendChild(section);
+        });
+
+        function handleVideoError(videoEl, expectedPath) {
+            videoEl.classList.add('hidden');
+            const fallback = videoEl.parentElement.querySelector('.video-fallback');
+            if (fallback) fallback.classList.remove('hidden');
+        }
+
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        function openVideoModal(projectId) {
+            const project = PORTFOLIO_PROJECTS.find(p => p.id === projectId);
+            if (!project) return;
+
+            const modal = document.getElementById('video-modal');
+            const videoEl = document.getElementById('modal-video-element');
+            const titleEl = document.getElementById('video-modal-title');
+
+            titleEl.textContent = project.title;
+            videoEl.src = project.videoSrc;
+            modal.classList.remove('hidden');
+            videoEl.play().catch(() => {});
+        }
+
+        function closeVideoModal() {
+            const modal = document.getElementById('video-modal');
+            const videoEl = document.getElementById('modal-video-element');
+            videoEl.pause();
+            videoEl.src = '';
+            modal.classList.add('hidden');
+        }
+
+        let activeProject = null;
+        let activeSheetIdx = 0;
+
+        function openSheetsModal(projectId, sheetIndex = 0) {
+            activeProject = PORTFOLIO_PROJECTS.find(p => p.id === projectId);
+            if (!activeProject || !activeProject.sheets || activeProject.sheets.length === 0) return;
+
+            activeSheetIdx = sheetIndex;
+            renderSheetStage();
+            document.getElementById('sheets-modal').classList.remove('hidden');
+        }
+
+        function closeSheetsModal() {
+            document.getElementById('sheets-modal').classList.add('hidden');
+        }
+
+        function renderSheetStage() {
+            if (!activeProject || !activeProject.sheets) return;
+            const sheet = activeProject.sheets[activeSheetIdx];
+
+            document.getElementById('sheets-project-label').textContent = `${activeProject.title} • Source Visual Development`;
+            document.getElementById('sheets-modal-title').textContent = sheet.title;
+            document.getElementById('sheets-counter').textContent = `${activeSheetIdx + 1} / ${activeProject.sheets.length}`;
+
+            const stage = document.getElementById('sheet-stage');
+            stage.innerHTML = `
+                <div class="w-full h-full flex flex-col items-center justify-center">
+                    <img
+                        src="${sheet.imageSrc}"
+                        alt="${sheet.title}"
+                        onerror="this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden');"
+                        class="max-w-full max-h-[66vh] rounded-2xl border border-champagne-500/35 shadow-2xl object-contain"
+                    />
+                    <div class="hidden w-full max-w-3xl aspect-[16/10] rounded-2xl bg-gradient-to-br from-[#111622] to-[#6B1D2F]/35 border-2 border-champagne-500/35 p-8 flex flex-col items-center justify-center text-center shadow-2xl">
+                        <div class="w-14 h-14 rounded-full bg-[#0A0D14] border border-champagne-500/40 text-champagne-400 flex items-center justify-center mb-4">
+                            <i class="fa-solid fa-image text-2xl"></i>
+                        </div>
+                        <h5 class="text-xl font-serif font-bold text-white">${sheet.title}</h5>
+                        <p class="text-sm text-gray-300 mt-2 max-w-md">${sheet.subtitle}</p>
+                        <span class="mt-4 text-xs font-mono text-champagne-300 px-3 py-1.5 rounded bg-black/50 border border-champagne-500/25">
+                            Expected Path: ${sheet.imageSrc}
+                        </span>
+                    </div>
+                    <p class="text-xs sm:text-sm text-gray-400 mt-3 text-center">${sheet.subtitle}</p>
+                </div>
+            `;
+
+            const thumbsContainer = document.getElementById('sheets-thumbs');
+            thumbsContainer.innerHTML = activeProject.sheets.map((s, idx) => `
+                <button onclick="selectSheet(${idx})" class="px-4 py-2 rounded-xl text-xs font-semibold transition-all border shrink-0 ${
+                    idx === activeSheetIdx
+                        ? 'bg-champagne-500 text-[#0A0D14] border-champagne-400 shadow-lg'
+                        : 'bg-[#0A0D14] text-gray-300 border-gray-800 hover:border-champagne-500/50'
+                }">
+                    0${idx + 1}. ${s.title.split('•')[0].trim()}
+                </button>
+            `).join('');
+        }
+
+        function selectSheet(idx) {
+            activeSheetIdx = idx;
+            renderSheetStage();
+        }
+
+        function prevSheet() {
+            if (!activeProject || !activeProject.sheets) return;
+            activeSheetIdx = (activeSheetIdx - 1 + activeProject.sheets.length) % activeProject.sheets.length;
+            renderSheetStage();
+        }
+
+        function nextSheet() {
+            if (!activeProject || !activeProject.sheets) return;
+            activeSheetIdx = (activeSheetIdx + 1) % activeProject.sheets.length;
+            renderSheetStage();
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeVideoModal();
+                closeSheetsModal();
+            } else if (!document.getElementById('sheets-modal').classList.contains('hidden')) {
+                if (e.key === 'ArrowLeft') prevSheet();
+                if (e.key === 'ArrowRight') nextSheet();
+            }
+        });
+    </script>
+</body>
+</html>
