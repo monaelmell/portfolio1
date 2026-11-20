@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEM AI Creative Studio | Mona El Mell</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --warm-ivory: #F5F0E8;
+            --ink-dark: #1A1A24;
+            --lilac: #B49AFF;
+            --lime: #C5FF00;
+            --cobalt: #254BFF;
+            --tangerine: #FF5A36;
+        }
+
+        body {
+            background-color: var(--warm-ivory);
+            color: var(--ink-dark);
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+
+        .art-card {
+            background: #FFFFFF;
+            border: 2px solid var(--ink-dark);
+            box-shadow: 4px 4px 0px var(--ink-dark);
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .art-card:hover {
+            box-shadow: 6px 6px 0px var(--cobalt);
+            transform: translateY(-2px);
+        }
+
+        .art-btn-primary {
+            background-color: var(--tangerine);
+            color: #FFFFFF;
+            border: 2px solid var(--ink-dark);
+            box-shadow: 3px 3px 0px var(--ink-dark);
+            font-weight: 700;
+            transition: all 0.2s ease;
+        }
+
+        .art-btn-primary:hover {
+            background-color: var(--lime);
+            color: var(--ink-dark);
+            box-shadow: 4px 4px 0px var(--cobalt);
+        }
+
+        .badge-lilac { background-color: var(--lilac); color: var(--ink-dark); border: 1.5px solid var(--ink-dark); }
+        .badge-lime { background-color: var(--lime); color: var(--ink-dark); border: 1.5px solid var(--ink-dark); }
+        .badge-cobalt { background-color: var(--cobalt); color: #FFFFFF; border: 1.5px solid var(--ink-dark); }
+        .badge-tangerine { background-color: var(--tangerine); color: #FFFFFF; border: 1.5px solid var(--ink-dark); }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-[#C5FF00] selection:text-[#1A1A24]">
+
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-50 bg-[#F5F0E8]/95 backdrop-blur-md border-b-2 border-[#1A1A24] px-4 sm:px-8 py-3.5 flex justify-between items-center">
+        <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full border-2 border-[#1A1A24] overflow-hidden bg-[#B49AFF] flex items-center justify-center font-bold text-[#1A1A24] text-sm shrink-0">
+                <img src="assets/profile_avatar.jpg" alt="Mona El Mell" class="w-full h-full object-cover" onerror="this.remove()">
+                <span>MEM</span>
+            </div>
+            <div>
+                <span class="text-sm sm:text-base font-black tracking-tight text-[#1A1A24] block leading-none">MEM AI STUDIO</span>
+                <span class="text-[10px] font-bold text-[#254BFF] tracking-wider uppercase">Mona El Mell</span>
+            </div>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex items-center gap-6 text-xs lg:text-sm font-bold text-[#1A1A24]">
+            <a href="#fashion-ai" class="hover:text-[#FF5A36] transition">AI Fashion</a>
+            <a href="#commercials" class="hover:text-[#254BFF] transition">5 Video Showcase</a>
+            <a href="#social-proof" class="hover:text-[#FF5A36] transition">Growth Proof</a>
+            <a href="https://wa.me/96176594246" target="_blank" class="art-btn-primary px-4 py-1.5 rounded-lg text-xs flex items-center gap-2">
+                <i class="fa-brands fa-whatsapp text-sm"></i> Let's Talk
+            </a>
+        </nav>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobile-menu-btn" class="md:hidden w-10 h-10 border-2 border-[#1A1A24] bg-[#C5FF00] rounded-lg flex items-center justify-center text-[#1A1A24] font-bold shadow-[2px_2px_0px_#1A1A24]">
+            <i class="fa-solid fa-bars text-lg"></i>
+        </button>
+    </header>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-drawer" class="hidden fixed inset-x-0 top-[67px] z-40 bg-[#F5F0E8] border-b-2 border-[#1A1A24] p-6 shadow-xl space-y-4 md:hidden">
+        <a href="#fashion-ai" class="mobile-link block text-sm font-black text-[#1A1A24] hover:text-[#254BFF]">AI Fashion Comparisons</a>
+        <a href="#commercials" class="mobile-link block text-sm font-black text-[#1A1A24] hover:text-[#254BFF]">5 Commercial Showcase</a>
+        <a href="#social-proof" class="mobile-link block text-sm font-black text-[#1A1A24] hover:text-[#254BFF]">YouTube & Client Proof</a>
+        <a href="https://wa.me/96176594246" target="_blank" class="art-btn-primary w-full py-2.5 rounded-xl text-xs flex items-center justify-center gap-2">
+            <i class="fa-brands fa-whatsapp text-base"></i> WhatsApp (+961 76 594 246)
+        </a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="max-w-5xl mx-auto px-4 sm:px-6 pt-10 sm:pt-14 pb-8 sm:pb-12 text-center">
+        <div class="inline-flex items-center gap-2 badge-lime px-3 sm:px-4 py-1.5 rounded-full text-[11px] sm:text-xs font-bold mb-6">
+            <span class="w-2.5 h-2.5 rounded-full bg-[#FF5A36] animate-pulse"></span>
+            AI Prompt Engineering Expert & Creative Director
+        </div>
+
+        <div class="flex justify-center mb-6">
+            <div class="w-20 sm:w-24 h-20 sm:h-24 rounded-full border-4 border-[#1A1A24] shadow-[4px_4px_0px_#254BFF] overflow-hidden bg-[#B49AFF] flex items-center justify-center text-xl font-bold">
+                <img src="assets/profile_avatar.jpg" alt="Mona El Mell" class="w-full h-full object-cover" onerror="this.remove()">
+                <span>MEM</span>
+            </div>
+        </div>
+
+        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-[#1A1A24] tracking-tight leading-tight mb-4">
+            AI-Powered Visual Production & <span class="bg-[#C5FF00] px-2 py-0.5 border-2 border-[#1A1A24] inline-block -rotate-1 shadow-[2px_2px_0px_#1A1A24]">Performance Ads</span>
+        </h1>
+        
+        <p class="text-[#1A1A24] max-w-2xl mx-auto text-sm sm:text-base lg:text-lg font-medium leading-relaxed mb-6 sm:mb-8">
+            Converting raw mannequin displays into hyper-realistic AI fashion models, editing high-retention video commercials, and engineering verified audience growth.
+        </p>
+
+        <div class="flex flex-wrap justify-center gap-2 sm:gap-3 text-[11px] sm:text-xs font-bold">
+            <span class="badge-lilac px-3 py-1.5 rounded-md">Prompt Engineering</span>
+            <span class="badge-tangerine px-3 py-1.5 rounded-md">Performance Commercials</span>
+            <span class="badge-cobalt px-3 py-1.5 rounded-md">50K+ YouTube Growth</span>
+        </div>
+    </section>
+
+    <!-- Main Content Container -->
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 space-y-12 sm:space-y-16 pb-16">
+
+        <!-- 1. AI Fashion Section (4 Interactive Comparison Cards) -->
+        <section id="fashion-ai" class="space-y-6">
+            <div class="flex items-center gap-3">
+                <span class="w-3.5 sm:w-4 h-7 sm:h-8 bg-[#FF5A36] border-2 border-[#1A1A24] inline-block"></span>
+                <div>
+                    <h2 class="text-xl sm:text-2xl font-black text-[#1A1A24]">AI Fashion Transformations</h2>
+                    <p class="text-xs font-bold text-[#254BFF]">4 Comparison Showcases (Preserved Fabric & Pattern Details)</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+                <!-- Card 1 -->
+                <div class="art-card rounded-2xl p-3.5 sm:p-4 space-y-3">
+                    <div class="flex justify-between items-center text-xs font-bold">
+                        <span class="badge-lilac px-2 py-0.5 rounded">Concept 01</span>
+                        <span class="text-gray-600 text-[11px]">Mannequin to Model</span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2 aspect-[4/3] rounded-xl overflow-hidden border-2 border-[#1A1A24]">
+                        <div class="relative bg-[#1A1A24]">
+                            <img src="asset/green1.jpeg" alt="Before" class="w-full h-full object-cover">
+                            <span class="absolute bottom-1.5 left-1.5 bg-[#1A1A24] text-white text-[9px] font-bold px-1.5 py-0.5 rounded">BEFORE</span>
+                        </div>
+                        <div class="relative bg-[#1A1A24]">
+                            <img src="asset/green2.jpeg" alt="After" class="w-full h-full object-cover">
+                            <span class="absolute bottom-1.5 left-1.5 bg-[#C5FF00] text-[#1A1A24] text-[9px] font-bold px-1.5 py-0.5 rounded border border-[#1A1A24]">AFTER</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="art-card rounded-2xl p-3.5 sm:p-4 space-y-3">
+                    <div class="flex justify-between items-center text-xs font-bold">
+                        <span class="badge-lime px-2 py-0.5 rounded">Concept 02</span>
+                        <span class="text-gray-600 text-[11px]">Studio Lighting Match</span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2 aspect-[4/3] rounded-xl overflow-hidden border-2 border-[#1A1A24]">
+                        <div class="relative bg-[#1A1A24]">
+                            <img src="asset/barbie1.jpeg" alt="Before" class="w-full h-full object-cover">
+                            <span class="absolute bottom-1.5 left-1.5 bg-[#1A1A24] text-white text-[9px] font-bold px-1.5 py-0.5 rounded">BEFORE</span>
+                        </div>
+                        <div class="relative bg-[#1A1A24]">
+                            <img src="asset/barbie2.jpeg" alt="After" class="w-full h-full object-cover">
+                            <span class="absolute bottom-1.5 left-1.5 bg-[#C5FF00] text-[#1A1A24] text-[9px] font-bold px-1.5 py-0.5 rounded border border-[#1A1A24]">AFTER</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="art-card rounded-2xl p-3.5 sm:p-4 space-y-3">
+                    <div class="flex justify-between items-center text-xs font-bold">
+                        <span class="badge-cobalt px-2 py-0.5 rounded">Concept 03</span>
+                        <span class="text-gray-600 text-[11px]">Embroidery & Hijab Detail</span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2 aspect-[4/3] rounded-xl overflow-hidden border-2 border-[#1A1A24]">
+                        <div class="relative bg-[#1A1A24]">
+                            <img src="asset/blue1.jpeg" alt="Before" class="w-full h-full object-cover">
+                            <span class="absolute bottom-1.5 left-1.5 bg-[#1A1A24] text-white text-[9px] font-bold px-1.5 py-0.5 rounded">BEFORE</span>
+                        </div>
+                        <div class="relative bg-[#1A1A24]">
+                            <img src="asset/blue2.jpeg" alt="After" class="w-full h-full object-cover">
+                            <span class="absolute bottom-1.5 left-1.5 bg-[#C5FF00] text-[#1A1A24] text-[9px] font-bold px-1.5 py-0.5 rounded border border-[#1A1A24]">AFTER</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="art-card rounded-2xl p-3.5 sm:p-4 space-y-3">
+                    <div class="flex justify-between items-center text-xs font-bold">
+                        <span class="badge-tangerine px-2 py-0.5 rounded">Concept 04</span>
+                        <span class="text-gray-600 text-[11px]">E-Commerce Lookbook</span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2 aspect-[4/3] rounded-xl overflow-hidden border-2 border-[#1A1A24]">
+                        <div class="relative bg-[#1A1A24]">
+                            <img src="asset/black1.jpeg" alt="Before" class="w-full h-full object-cover">
+                            <span class="absolute bottom-1.5 left-1.5 bg-[#1A1A24] text-white text-[9px] font-bold px-1.5 py-0.5 rounded">BEFORE</span>
+                        </div>
+                        <div class="relative bg-[#1A1A24]">
+                            <img src="asset/black2.jpeg" alt="After" class="w-full h-full object-cover">
+                            <span class="absolute bottom-1.5 left-1.5 bg-[#C5FF00] text-[#1A1A24] text-[9px] font-bold px-1.5 py-0.5 rounded border border-[#1A1A24]">AFTER</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Performance Commercial Showcase (5 Video Slots) -->
+        <section id="commercials" class="space-y-6">
+            <div class="flex items-center gap-3">
+                <span class="w-3.5 sm:w-4 h-7 sm:h-8 bg-[#C5FF00] border-2 border-[#1A1A24] inline-block"></span>
+                <div>
+                    <h2 class="text-xl sm:text-2xl font-black text-[#1A1A24]">Performance Commercial Showcase</h2>
+                    <p class="text-xs font-bold text-[#FF5A36]">5 Video Slots with Strategy Summaries & Reference Thumbnails</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+                <!-- Video 1 -->
+                <div class="art-card rounded-2xl p-4 flex flex-col justify-between space-y-3">
+                    <div class="space-y-2.5">
+                        <div class="aspect-video bg-black rounded-xl overflow-hidden border-2 border-[#1A1A24]">
+                            <video controls class="w-full h-full object-cover"><source src="asset/master.mp4" type="video/mp4"></video>
+                        </div>
+                        <div class="flex items-center gap-2.5 bg-[#F5F0E8] p-2 rounded-lg border border-[#1A1A24]">
+                            <img src="assets/thumb1.jpg" alt="Ref" class="w-10 h-10 rounded border border-[#1A1A24] object-cover shrink-0">
+                            <div>
+                                <span class="text-xs font-extrabold text-[#1A1A24] block leading-tight">Master Chips Commercial</span>
+                                <span class="text-[10px] font-bold text-[#254BFF]">Visual Pattern Interrupt</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-xs font-medium text-gray-800 leading-relaxed pt-2 border-t border-gray-200">
+                        <strong>Hook:</strong> Fast 2-second visual interrupt.<br>
+                        <strong>Pacing:</strong> Dynamic motion cuts to drive impulse action.
+                    </p>
+                </div>
+
+                <!-- Video 2 -->
+                <div class="art-card rounded-2xl p-4 flex flex-col justify-between space-y-3">
+                    <div class="space-y-2.5">
+                        <div class="aspect-video bg-black rounded-xl overflow-hidden border-2 border-[#1A1A24]">
+                            <video controls class="w-full h-full object-cover"><source src="asset/dior.mp4" type="video/mp4"></video>
+							onclick="openVideoModal('asset/dior.mp4', 'dior')"
+                        </div>
+                        <div class="flex items-center gap-2.5 bg-[#F5F0E8] p-2 rounded-lg border border-[#1A1A24]">
+                            <img src="assets/thumb2.jpg" alt="Ref" class="w-10 h-10 rounded border border-[#1A1A24] object-cover shrink-0">
+                            <div>
+                                <span class="text-xs font-extrabold text-[#1A1A24] block leading-tight">Luxury Perfume Concept</span>
+                                <span class="text-[10px] font-bold text-[#254BFF]">Cinematic Grading</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-xs font-medium text-gray-800 leading-relaxed pt-2 border-t border-gray-200">
+                        <strong>Hook:</strong> Atmospheric mood lighting.<br>
+                        <strong>Pacing:</strong> Emotional build-up aligned with product showcase.
+                    </p>
+                </div>
+
+                <!-- Video 3 -->
+                <div class="art-card rounded-2xl p-4 flex flex-col justify-between space-y-3">
+                    <div class="space-y-2.5">
+                        <div class="aspect-video bg-black rounded-xl overflow-hidden border-2 border-[#1A1A24]">
+                            <video controls class="w-full h-full object-cover"><source src="asset/tomate.mp4" type="video/mp4"></video>
+							onclick="openVideoModal('asset/tomate.mp4', 'tomate')"
+                        </div>
+                        <div class="flex items-center gap-2.5 bg-[#F5F0E8] p-2 rounded-lg border border-[#1A1A24]">
+                            <img src="assets/thumb3.jpg" alt="Ref" class="w-10 h-10 rounded border border-[#1A1A24] object-cover shrink-0">
+                            <div>
+                                <span class="text-xs font-extrabold text-[#1A1A24] block leading-tight">AI Voiceover Promo</span>
+                                <span class="text-[10px] font-bold text-[#254BFF]">Audio-Visual Sync</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-xs font-medium text-gray-800 leading-relaxed pt-2 border-t border-gray-200">
+                        <strong>Hook:</strong> High-energy voiceover intro.<br>
+                        <strong>Pacing:</strong> Precision sound design synced to visual shifts.
+                    </p>
+                </div>
+
+                <!-- Video 4 -->
+                <div class="art-card rounded-2xl p-4 flex flex-col justify-between space-y-3">
+                    <div class="space-y-2.5">
+                        <div class="aspect-video bg-black rounded-xl overflow-hidden border-2 border-[#1A1A24]">
+                            <video controls class="w-full h-full object-cover"><source src="asset/cote.mp4" type="video/mp4"></video>
+							onclick="openVideoModal('asset/cote.mp4', 'cote')"
+                        </div>
+                        <div class="flex items-center gap-2.5 bg-[#F5F0E8] p-2 rounded-lg border border-[#1A1A24]">
+                            <img src="assets/thumb4.jpg" alt="Ref" class="w-10 h-10 rounded border border-[#1A1A24] object-cover shrink-0">
+                            <div>
+                                <span class="text-xs font-extrabold text-[#1A1A24] block leading-tight">UGC Style Edit</span>
+                                <span class="text-[10px] font-bold text-[#254BFF]">High-Retention UGC</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-xs font-medium text-gray-800 leading-relaxed pt-2 border-t border-gray-200">
+                        <strong>Hook:</strong> Authentic customer reaction snippet.<br>
+                        <strong>Pacing:</strong> Rapid feature walkthrough for conversions.
+                    </p>
+                </div>
+
+                <!-- Video 5 -->
+                <div class="art-card rounded-2xl p-4 flex flex-col justify-between space-y-3 md:col-span-2 lg:col-span-1">
+                    <div class="space-y-2.5">
+                        <div class="aspect-video bg-black rounded-xl overflow-hidden border-2 border-[#1A1A24]">
+                            <video controls class="w-full h-full object-cover"><source src="asset/trailer.mp4" type="video/mp4"></video>
+							onclick="openVideoModal('asset/trailer.mp4', 'trailer')"
+                        </div>
+                        <div class="flex items-center gap-2.5 bg-[#F5F0E8] p-2 rounded-lg border border-[#1A1A24]">
+                            <img src="assets/thumb5.jpg" alt="Ref" class="w-10 h-10 rounded border border-[#1A1A24] object-cover shrink-0">
+                            <div>
+                                <span class="text-xs font-extrabold text-[#1A1A24] block leading-tight">Creative Product Campaign</span>
+                                <span class="text-[10px] font-bold text-[#254BFF]">Rhythmic Cut Flow</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-xs font-medium text-gray-800 leading-relaxed pt-2 border-t border-gray-200">
+                        <strong>Hook:</strong> Bold color contrast and punchy CTA.<br>
+                        <strong>Pacing:</strong> Rhythmic transition flow holding viewer focus.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Social Proof & Growth Proof -->
+        <section id="social-proof" class="space-y-6">
+            <div class="flex items-center gap-3">
+                <span class="w-3.5 sm:w-4 h-7 sm:h-8 bg-[#254BFF] border-2 border-[#1A1A24] inline-block"></span>
+                <div>
+                    <h2 class="text-xl sm:text-2xl font-black text-[#1A1A24]">Social Proof & Direct Sales</h2>
+                    <p class="text-xs font-bold text-[#254BFF]">YouTube 50K Analytics & Verified Client Direct Message Proof</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+                <!-- YouTube Analytics Card -->
+                <div class="art-card rounded-2xl p-4 sm:p-5 space-y-3">
+                    <div class="flex justify-between items-center border-b-2 border-[#1A1A24] pb-2">
+                        <span class="font-bold text-xs sm:text-sm text-[#1A1A24]">YouTube Studio Analytics</span>
+                        <span class="badge-tangerine px-2 py-0.5 rounded text-[11px] font-bold">50,000+ Subs</span>
+                    </div>
+                    <div class="aspect-video bg-[#F5F0E8] rounded-xl overflow-hidden border-2 border-[#1A1A24]">
+                        <img src="assets/youtube_50k.jpg" alt="YouTube Studio 50K Subscribers" class="w-full h-full object-cover">
+                    </div>
+                    <p class="text-xs font-medium text-gray-800 leading-relaxed">
+                        Verified personal channel growth showcasing retention strategies, thumbnail CTR optimization, and organic algorithm distribution.
+                    </p>
+                </div>
+
+                <!-- Client DM & Sales Card -->
+                <div class="art-card rounded-2xl p-4 sm:p-5 space-y-3">
+                    <div class="flex justify-between items-center border-b-2 border-[#1A1A24] pb-2">
+                        <span class="font-bold text-xs sm:text-sm text-[#1A1A24]">Client Direct Sales Inquiries</span>
+                        <span class="badge-lime px-2 py-0.5 rounded text-[11px] font-bold">Purchase Intent</span>
+                    </div>
+                    <div class="aspect-video bg-[#F5F0E8] rounded-xl overflow-hidden border-2 border-[#1A1A24] grid grid-cols-2 gap-1 p-1">
+                        <img src="assets/instagram_rebrand.jpg" alt="Instagram Grid" class="w-full h-full object-cover rounded">
+                        <img src="assets/client_chat.jpg" alt="Client DMs" class="w-full h-full object-cover rounded">
+                    </div>
+                    <p class="text-xs font-medium text-gray-800 leading-relaxed">
+                        Direct customer inquiries following visual rebrand campaigns, confirming heightened perceived brand value and buying intent.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Direct WhatsApp Call-to-Action -->
+        <section class="art-card rounded-3xl p-6 sm:p-8 text-center space-y-4 bg-[#B49AFF]/20">
+            <div class="w-14 sm:w-16 h-14 sm:h-16 mx-auto rounded-full border-2 border-[#1A1A24] overflow-hidden bg-[#FF5A36] flex items-center justify-center font-bold text-white text-lg">
+                <img src="assets/profile_avatar.jpg" alt="Mona El Mell" class="w-full h-full object-cover" onerror="this.remove()">
+                <span>MEM</span>
+            </div>
+            <h2 class="text-xl sm:text-3xl font-black text-[#1A1A24]">Ready to Elevate Your Visual Content?</h2>
+            <p class="text-xs sm:text-sm font-medium text-gray-800 max-w-md mx-auto">Available for commercial video edits, AI fashion transformations, and creative direction.</p>
+            <div>
+                <a href="https://wa.me/96176594246" target="_blank" class="art-btn-primary px-6 py-3 rounded-xl text-xs sm:text-sm inline-flex items-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-base sm:text-lg"></i> Direct WhatsApp (+961 76 594 246)
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer Signature -->
+    <footer class="bg-[#1A1A24] text-[#F5F0E8] py-8 px-6 text-center border-t-2 border-[#1A1A24]">
+        <p class="text-xs font-bold tracking-widest uppercase">
+            PORTFOLIO CODED BY <span class="text-[#C5FF00]">MONA EL MELL</span>
+        </p>
+        <p class="text-[10px] text-gray-400 mt-1">© MEM AI Creative Studio. All rights reserved.</p>
+    </footer>
+
+    <!-- Interactive Mobile Drawer Script -->
+    <script>
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const drawer = document.getElementById('mobile-drawer');
+        const links = document.querySelectorAll('.mobile-link');
+
+        menuBtn.addEventListener('click', () => {
+            drawer.classList.toggle('hidden');
+        });
+
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                drawer.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
